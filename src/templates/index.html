@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway"
       rel="stylesheet"
     />
+    <link type="preload" as="script" href="<%= PUBLIC_URL %>/webgl-worker.js" />
     <!-- bundle.css is injected here by html-webpack-plugin -->
   </head>
   <body>
@@ -20,7 +21,12 @@
           <li><a href="<%= PUBLIC_URL %>/about.html">About</a></li>
         </ul>
       </div>
-      <div class="canvas-container"></div>
+      <div class="canvas-container">
+        <canvas id="onscreen-canvas"></div>
+      </div>
+      <div class="test-canvas-container">
+          <canvas id="test-canvas"></div>
+        </div>
     </div>
     <!-- bundle.js is injected here by html-webpack-plugin -->
   </body>

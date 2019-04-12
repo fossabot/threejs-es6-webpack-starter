@@ -22,6 +22,13 @@ const rules = [
       loader: "babel-loader",
     },
   },
+  // rule for web workers
+  {
+    test: /\.worker\.js$/,
+    include: [path.join(__dirname, "src", "js")],
+    use: { loader: "worker-loader" },
+  },
+  // rule for stylesheets
   {
     test: /\.(css)$/,
     include: [path.join(__dirname, "src", "css")],
@@ -145,9 +152,9 @@ module.exports = (env, argv) => {
       title: APP_NAME,
     }),
     new HtmlWebpackPlugin({
-      chunks: ["homePage"],
+      chunks: ["home"],
       filename: "index.html",
-      hash: true,
+      hash: false,
       template: path.join(__dirname, "src", "templates", "index.html"),
       templateParameters: {
         APP_NAME,
@@ -155,7 +162,7 @@ module.exports = (env, argv) => {
       },
     }),
     new HtmlWebpackPlugin({
-      chunks: ["aboutPage"],
+      chunks: ["about"],
       filename: "about.html",
       hash: true,
       template: path.join(__dirname, "src", "templates", "about.html"),
@@ -184,24 +191,25 @@ module.exports = (env, argv) => {
         minRatio: 0.8,
       })
     );
-  } else {
-    plugins.push(new webpack.HotModuleReplacementPlugin());
   }
+  // else {
+  //   plugins.push(new webpack.HotModuleReplacementPlugin());
+  // }
 
   const config = {
     context: __dirname,
     devServer,
     devtool: isProduction ? "source-map" : "cheap-source-map",
     entry: {
-      aboutPage: "./src/js/about.js",
-      homePage: "./src/js/index.js",
+      about: "./src/js/about.js",
+      home: "./src/js/index.js",
     },
     module: {
       rules,
     },
     optimization,
     output: {
-      filename: "[name].[hash].js",
+      filename: "[name].js",
       path: path.join(__dirname, "build"),
     },
     plugins,
