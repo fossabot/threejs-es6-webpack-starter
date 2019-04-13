@@ -8,6 +8,7 @@ A minimal three.js ES6 starter project that uses webpack.
 
 ## Features
 
+- Offscreen canvas rendering in a web worker with [OffscreenCanvas](https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas)
 - ES6 support with [babel-loader](https://github.com/babel/babel-loader)
 - Code formatting with [prettier](https://github.com/prettier/prettier)
 - CSS support with [style-loader](https://github.com/webpack-contrib/style-loader)
@@ -27,6 +28,7 @@ A minimal three.js ES6 starter project that uses webpack.
   - [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
   - [webpack-bundle-analyzer](https://github.com/th0r/webpack-bundle-analyzer)
   - [webpack-glsl-loader](https://github.com/grieve/webpack-glsl-loader)
+  - [worker-loader](https://github.com/webpack-contrib/worker-loader)
 
 ## Installation
 
